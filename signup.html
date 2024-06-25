@@ -1,0 +1,52 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="container mt-5">
+  <div class="form-group">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="Enter first name">
+    <div *ngIf="formGroup.get('firstName')?.invalid && formGroup.get('firstName')?.touched" class="danger">
+      <span *ngIf="formGroup.get('firstName')?.hasError('required')">This field is required</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Enter last name">
+    <div *ngIf="formGroup.get('lastName')?.invalid && formGroup.get('lastName')?.touched" class="danger">
+      <span *ngIf="formGroup.get('lastName')?.hasError('required')">This field is required</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username" class="form-control" placeholder="Enter username">
+    <div *ngIf="formGroup.get('username')?.invalid && formGroup.get('username')?.touched" class="danger">
+      <span *ngIf="formGroup.get('username')?.hasError('required')">This field is required</span>
+    </div>
+  </div>
+<div class="form-group">
+    <label for="speciality">Speciality:</label>
+    <select id="speciality" formControlName="speciality" class="form-control">
+      <option *ngFor="let speciality of specialities" [value]="speciality">{{speciality}}</option>
+    </select>
+    <div *ngIf="formGroup.get('speciality')?.invalid && formGroup.get('speciality')?.touched" class="danger">
+      <span *ngIf="formGroup.get('speciality')?.hasError('required')">This field is required</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" class="form-control" placeholder="Enter password">
+    <div *ngIf="formGroup.get('password')?.invalid && formGroup.get('password')?.touched" class="danger">
+      <span *ngIf="formGroup.get('password')?.hasError('required')">This field is required</span>
+      <span *ngIf="formGroup.get('password')?.hasError('minlength')">Password must be at least 8 characters long</span>
+    </div>
+  </div>
+<div class="form-group">
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control" placeholder="Re-enter password">
+    <div *ngIf="formGroup.get('confirmPassword')?.invalid && formGroup.get('confirmPassword')?.touched" class="danger">
+      <span *ngIf="formGroup.hasError('passwordMatch')">Passwords do not match</span>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="formGroup.invalid" class="btn btn-primary">Register</button>
+</form>
