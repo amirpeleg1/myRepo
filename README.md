@@ -1,2 +1,2 @@
 # myRepo
-SadnaAcademit
+SadnaAcademit - MediQuick
