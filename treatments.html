@@ -1,0 +1,21 @@
+<ul class="treatment-list" *ngIf="treatments?.length; else noData">
+  <li *ngFor="let treatment of treatments">
+    <div class="treatment-card bg-light">
+      <p><strong>Residing Healthcare Professional:</strong> {{ treatment.residingHealthCareProfessional.firstName }} {{ treatment.residingHealthCareProfessional.lastName }}</p>
+      <p><strong>Patient:</strong> {{ treatment.patient.firstName }} {{ treatment.patient.lastName }}</p>
+      <p><strong>Room:</strong> {{ treatment.room.roomNumber }}</p>
+      <p><strong>Start Time:</strong> {{ treatment.createdAt | date:'short' }}</p>
+      <p><strong>Status:</strong> {{ treatment.treatmentStatus }}</p>
+      <button
+        [disabled]="treatment.treatmentStatus !== TreatmentStatus.ONGOING"
+        (click)="changeTreatmentStatus(treatment)">
+        Change Status
+      </button>
+    </div>
+  </li>
+</ul>
+<ng-template #noData>
+  <div class="container mt-4">
+    <p class="text-muted">No treatments found.</p>
+  </div>
+</ng-template>
