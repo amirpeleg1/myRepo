@@ -1,0 +1,17 @@
+div *ngIf="healthcareProfessionals.length; else noData" class="container mt-4">
+  <h2 class="mb-3">Healthcare Professionals</h2>
+  <div class="list-group">
+    <a class="list-group-item list-group-item-action" *ngFor="let professional of healthcareProfessionals">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ professional.firstName }} {{ professional.lastName }}</h5>
+        <small class="{{ professional.status }}">{{ professional.status }}</small>
+      </div>
+      <p class="mb-1">{{ professional.speciality }}</p>
+    </a>
+  </div>
+</div>
+<ng-template #noData>
+  <div class="container mt-4">
+    <p class="text-muted">No healthcare professionals found.</p>
+  </div>
+</ng-template>
