@@ -1,0 +1,23 @@
+.treatment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.treatment-card {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.treatment-card h3 {
+  margin-top: 0;
+}
+
+.treatment-card p {
+  margin: 5px 0;
+}
+
+.strong {
+  font-weight: bold;
+}
